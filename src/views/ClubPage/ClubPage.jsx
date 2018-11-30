@@ -10,35 +10,22 @@ import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
-import Button from "components/CustomButtons/Button.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import NavPills from "components/NavPills/NavPills.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-
 import profile from 'assets/img/club-bg.jpg';
-
-import studio1 from "assets/img/examples/studio-1.jpg";
-import studio2 from "assets/img/examples/studio-2.jpg";
-import studio3 from "assets/img/examples/studio-3.jpg";
-import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
-import work1 from "assets/img/examples/olu-eletu.jpg";
-import work2 from "assets/img/examples/clem-onojeghuo.jpg";
-import work3 from "assets/img/examples/cynthia-del-rio.jpg";
-import work4 from "assets/img/examples/mariya-georgieva.jpg";
-import work5 from "assets/img/examples/clem-onojegaw.jpg";
-
 //
-import AlignItemsList from "components/AlignItemsList/AlignItemsList.jsx";
 import pageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import TitlebarGridList from "components/TitlebarGridList/TitlebarGridList.jsx";
 import CustomizedTabs from "components/CustomizedTabs/CustomizedTabs.jsx";
-import _ from 'lodash';
 import * as service from '../../services/apis';
+
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Button from "components/CustomButtons/Button.jsx";
+import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
+import profileImage from "assets/img/faces/avatar.jpg";
+import Email from "@material-ui/icons/Email";
 
 class ClubPage extends React.Component {
   constructor() {
@@ -55,10 +42,10 @@ class ClubPage extends React.Component {
       classes.imgRoundedCircle,
       classes.imgFluid
     );
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
     return (
       <div>
-        <Header
+        {/*<Header
           color="transparent"
           brand="G Spare Bowling"
           rightLinks={<HeaderLinks/>}
@@ -69,7 +56,7 @@ class ClubPage extends React.Component {
           }}
           {...rest}
         />
-        <Parallax small filter image={require('assets/img/club-bg.jpg')}/>
+        <Parallax small filter image={require('assets/img/club-bg.jpg')}/>*/}
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
             <div className={classes.container}>
@@ -81,16 +68,6 @@ class ClubPage extends React.Component {
                     </div>
                     <div className={classes.name}>
                       <h3 className={classes.title}>G Spare Bowling</h3>
-                      {/*<h6>DESIGNER</h6>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-instagram"} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-facebook"} />
-                      </Button>*/}
                     </div>
                   </div>
                 </GridItem>
@@ -105,118 +82,6 @@ class ClubPage extends React.Component {
                 <GridItem xs={12} sm={12} md={20} className={classes.navWrapper}>
                   <CustomizedTabs />
 
-                  {/*<NavPills
-                    alignCenter
-                    color="primary"
-                    tabs={[
-                      {
-                        tabButton: "Studio",
-                        tabIcon: Camera,
-                        tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio2}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio5}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio4}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                          </GridContainer>
-                        )
-                      },
-                      {
-                        tabButton: "Work",
-                        tabIcon: Palette,
-                        tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work2}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work3}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work4}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work5}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                          </GridContainer>
-                        )
-                      },
-                      {
-                        tabButton: "Favorite",
-                        tabIcon: Favorite,
-                        tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work4}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio3}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work2}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                          </GridContainer>
-                        )
-                      }
-                    ]}
-                  />*/}
                 </GridItem>
               </GridContainer>
             </div>

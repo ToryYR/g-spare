@@ -21,6 +21,8 @@ import CustomInput from 'components/CustomInput/CustomInput.jsx';
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
 import image from 'assets/img/bg7.jpg';
 import SectionCarousel from '../Components/Sections/SectionCarousel.jsx';
+import ClubPage from '../ClubPage/ClubPage'
+import Parallax from 'components/Parallax/Parallax.jsx';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -42,12 +44,17 @@ class MainPage extends React.Component {
     return (
       <div>
         <Header
-          absolute
           color="transparent"
           brand="G Spare Bowling"
-          rightLinks={<HeaderLinks />}
+          rightLinks={<HeaderLinks/>}
+          fixed
+          changeColorOnScroll={{
+            height: 200,
+            color: "white"
+          }}
           {...rest}
         />
+        <Parallax small filter image={require('assets/img/club-bg.jpg')}/>
         <div
           className={classes.pageHeader}
           style={{
@@ -57,11 +64,7 @@ class MainPage extends React.Component {
           }}
         >
           <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={50}>
-                <SectionCarousel />
-              </GridItem>
-            </GridContainer>
+            <ClubPage />
           </div>
           <Footer whiteFont />
         </div>
