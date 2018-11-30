@@ -1,15 +1,19 @@
-import Components from "views/Components/Components.jsx";
-import LandingPage from "views/LandingPage/LandingPage.jsx";
-import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
-import LoginPage from "views/LoginPage/LoginPage.jsx";
-import MainPage from "views/MainPage/MainPage.jsx";
+import Components from 'views/Components/Components';
+import LandingPage from 'views/LandingPage/LandingPage';
+import ProfilePage from 'views/ProfilePage/ProfilePage';
+import LoginPage from 'views/LoginPage/LoginPage';
+import MainPage from 'views/MainPage/MainPage';
+import ClubPage from 'views/ClubPage/ClubPage';
+import JoinPage from 'views/JoinPage/JoinPage';
 
-var indexRoutes = [
-  { path: "/landing-page", name: "LandingPage", component: LandingPage },
-  { path: "/profile-page", name: "ProfilePage", component: ProfilePage },
-  { path: "/login-page", name: "LoginPage", component: LoginPage },
-  { path: "/test", name: "Components", component: Components },
-  { path: "/", name: "Components", component: MainPage }
+const indexRoutes = [
+  { path: '/landing-page', name: 'LandingPage', component: LandingPage },
+  { path: '/profile-page', name: 'ProfilePage', component: ProfilePage },
+  { path: '/login-page', name: 'LoginPage', component: LoginPage },
+  { path: '/join', name: 'JoinPage', component: JoinPage },
+  { path: '/test', name: 'Components', component: Components },
+  { path: '/club', name: 'ClubPage', component: ClubPage },
+  { path: '/', name: 'MainPage', component: MainPage }
 ];
 
 export default indexRoutes;

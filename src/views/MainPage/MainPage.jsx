@@ -33,13 +33,11 @@ import SectionCarousel from "../Components/Sections/SectionCarousel.jsx";
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    // we use this to make the card to appear after the page has been rendered
     this.state = {
       cardAnimaton: "cardHidden"
     };
   }
   componentDidMount() {
-    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
     setTimeout(
       function() {
         this.setState({ cardAnimaton: "" });
@@ -52,12 +50,17 @@ class MainPage extends React.Component {
     return (
       <div>
         <Header
-          absolute
           color="transparent"
           brand="G Spare Bowling"
-          rightLinks={<HeaderLinks />}
+          rightLinks={<HeaderLinks/>}
+          fixed
+          changeColorOnScroll={{
+            height: 200,
+            color: "white"
+          }}
           {...rest}
         />
+        <Parallax small filter image={require('assets/img/club-bg.jpg')}/>
         <div
           className={classes.pageHeader}
           style={{
@@ -67,11 +70,7 @@ class MainPage extends React.Component {
           }}
         >
           <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={50} sm={50} md={50}>
-              <SectionCarousel />
-              </GridItem>
-            </GridContainer>
+            <ClubPage />
           </div>
           <Footer whiteFont />
         </div>
