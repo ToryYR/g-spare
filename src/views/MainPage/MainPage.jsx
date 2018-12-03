@@ -79,4 +79,5 @@ class MainPage extends React.Component {
   }
 }
 
+
 export default withStyles(loginPageStyle)(MainPage);
