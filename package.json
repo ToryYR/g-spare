@@ -20,6 +20,7 @@
     "react": "16.5.2",
     "react-datetime": "2.15.0",
     "react-dom": "16.5.2",
+    "react-kakao-login": "^1.1.0",
     "react-router-dom": "4.3.1",
     "react-scripts": "1.1.5",
     "react-slick": "0.23.1",
